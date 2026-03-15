@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noina Shop | ตะกร้าสินค้า</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= BASE ================= */
+
+body{
+margin:0;
+font-family:'Prompt',sans-serif;
+background:radial-gradient(circle at top,#3a0030,#0b0010);
+color:#fce7f3;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+position:sticky;
+top:0;
+z-index:100;
+background:rgba(25,0,20,.85);
+border-bottom:1px solid #ff2d95;
+padding:14px 28px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(12px);
+}
+
+.brand-logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.brand-logo img{
+width:42px;
+height:42px;
+border-radius:50%;
+border:2px solid #ff2d95;
+}
+
+.brand-logo h1{
+margin:0;
+font-family:'Orbitron';
+font-size:1.2rem;
+color:#ff2d95;
+}
+
+.navbar-menu{
+display:flex;
+gap:20px;
+}
+
+.nav-link{
+transition:.3s;
+}
+
+.nav-link:hover{
+color:#ff4db2;
+}
+
+/* ================= LAYOUT ================= */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px 80px;
+}
+
+h2{
+margin-bottom:30px;
+font-family:'Orbitron';
+color:#ff2d95;
+}
+
+/* ================= GRID ================= */
+
+.cart-grid{
+display:grid;
+grid-template-columns:1fr 360px;
+gap:30px;
+}
+
+/* ================= CART ITEM ================= */
+
+.cart-item{
+display:grid;
+grid-template-columns:90px 1fr 150px 120px 80px;
+align-items:center;
+gap:16px;
+background:linear-gradient(180deg,#2a0022,#120012);
+border:1px solid #ff2d95;
+border-radius:18px;
+padding:16px;
+transition:.3s;
+}
+
+.cart-item:hover{
+border-color:#ff4db2;
+box-shadow:0 0 18px rgba(255,45,149,.35);
+}
+
+.cart-item img{
+width:90px;
+border-radius:12px;
+}
+
+.item-details h3{
+margin:0 0 6px;
+font-size:1rem;
+color:#fff;
+}
+
+.item-details p{
+margin:0;
+font-size:.85rem;
+color:#f9a8d4;
+}
+
+.item-total{
+font-weight:600;
+color:#ff4db2;
+}
+
+/* ================= QUANTITY ================= */
+
+.item-quantity{
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.item-quantity button{
+width:32px;
+height:32px;
+background:#120012;
+border:1px solid #ff2d95;
+color:#ff2d95;
+border-radius:8px;
+cursor:pointer;
+transition:.25s;
+}
+
+.item-quantity button:hover{
+background:#ff2d95;
+color:#fff;
+box-shadow:0 0 12px rgba(255,45,149,.6);
+}
+
+.item-quantity input{
+width:50px;
+text-align:center;
+background:#120012;
+border:1px solid #ff2d95;
+color:#fff;
+border-radius:6px;
+height:32px;
+}
+
+/* ================= REMOVE ================= */
+
+.btn-remove{
+background:transparent;
+border:1px solid #ff2d95;
+color:#ff2d95;
+border-radius:10px;
+padding:6px 10px;
+cursor:pointer;
+transition:.25s;
+}
+
+.btn-remove:hover{
+background:#ff2d95;
+color:#fff;
+}
+
+/* ================= SUMMARY ================= */
+
+.cart-summary{
+background:linear-gradient(180deg,#2a0022,#120012);
+border:1px solid #ff2d95;
+border-radius:20px;
+padding:24px;
+}
+
+.cart-summary h3{
+margin-top:0;
+margin-bottom:18px;
+color:#ff2d95;
+}
+
+.summary-row{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+font-size:.95rem;
+}
+
+.summary-row.total{
+font-size:1.1rem;
+font-weight:600;
+border-top:1px solid #ff2d95;
+padding-top:14px;
+margin-top:14px;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+display:block;
+text-align:center;
+padding:14px;
+border-radius:14px;
+margin-top:14px;
+font-size:.95rem;
+font-weight:500;
+transition:.3s;
+}
+
+.btn-primary{
+background:#ff2d95;
+color:#fff;
+border:1px solid #ff2d95;
+}
+
+.btn-primary:hover{
+box-shadow:0 0 25px rgba(255,45,149,.7);
+transform:translateY(-2px);
+}
+
+.btn-outline{
+border:1px solid #ff2d95;
+color:#ff2d95;
+background:transparent;
+}
+
+.btn-outline:hover{
+background:#ff2d95;
+color:#fff;
+}
+
+/* ================= EMPTY ================= */
+
+.empty-cart{
+text-align:center;
+padding:80px 20px;
+border:1px dashed #ff2d95;
+border-radius:18px;
+}
+
+.empty-cart h3{
+color:#ff2d95;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:900px){
+
+.cart-grid{
+grid-template-columns:1fr;
+}
+
+.cart-item{
+grid-template-columns:80px 1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="brand-logo">
+<img src="{{ url_for('static', filename='images/products/logo.png') }}">
+<h1>Noina Shop</h1>
+</div>
+
+<div class="navbar-menu">
+<a href="/" class="nav-link">หน้าแรก</a>
+<a href="/cart" class="nav-link">🛒 ตะกร้า</a>
+</div>
+
+</nav>
+
+<main class="container">
+
+<h2>ตะกร้าสินค้าของคุณ</h2>
+
+{% if cart_items %}
+
+<div class="cart-grid">
+
+<div>
+
+{% for item in cart_items %}
+
+<div class="cart-item">
+
+<img src="{{ item.image_url }}">
+
+<div class="item-details">
+<h3>{{ item.name }}</h3>
+<p>ราคา ฿{{ "{:,}".format(item.price) }}</p>
+</div>
+
+<div class="item-quantity">
+<button onclick="decreaseQty({{ item.id }})">−</button>
+<input type="number" value="{{ item.quantity }}" min="1">
+<button onclick="increaseQty({{ item.id }})">+</button>
+</div>
+
+<div class="item-total">
+฿{{ "{:,}".format(item.total) }}
+</div>
+
+<button class="btn-remove" onclick="removeFromCart({{ item.id }})">
+ลบ
+</button>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div class="cart-summary">
+
+<h3>สรุปคำสั่งซื้อ</h3>
+
+<div class="summary-row">
+<span>ยอดรวม</span>
+<span>฿{{ "{:,}".format(subtotal) }}</span>
+</div>
+
+<div class="summary-row">
+<span>ค่าจัดส่ง</span>
+<span>฿{{ "{:,}".format(shipping) }}</span>
+</div>
+
+<div class="summary-row total">
+<span>รวมทั้งสิ้น</span>
+<span>฿{{ "{:,}".format(total|int) }}</span>
+</div>
+
+<a href="/checkout" class="btn btn-primary">
+ไปชำระเงิน
+</a>
+
+<a href="/" class="btn btn-outline">
+ช้อปปิ้งต่อ
+</a>
+
+</div>
+
+</div>
+
+{% else %}
+
+<div class="empty-cart">
+
+<h3>ตะกร้าของคุณว่างเปล่า</h3>
+<p>ไปเลือกสินค้ากันเลย</p>
+
+<a href="/" class="btn btn-primary">
+เลือกสินค้า
+</a>
+
+</div>
+
+{% endif %}
+
+</main>
+
+<script>
+
+function increaseQty(id){
+fetch('/api/cart/increase',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({product_id:id})
+})
+.then(()=>location.reload());
+}
+
+function decreaseQty(id){
+fetch('/api/cart/decrease',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({product_id:id})
+})
+.then(()=>location.reload());
+}
+
+function removeFromCart(id){
+if(!confirm('ลบสินค้านี้ออกจากตะกร้า?')) return;
+
+fetch('/api/cart/remove',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({product_id:id})
+})
+.then(()=>location.reload());
+}
+
+</script>
+
+</body>
+</html>

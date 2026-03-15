@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ชำระเงิน</title>
+</head>
+<body>
+
+<h2>สแกนเพื่อชำระเงิน</h2>
+<p>Order ID: {{ order_id }}</p>
+
+<img src="data:image/png;base64,{{ qr_data }}" width="260">
+
+<br><br>
+<a href="/success/{{ order_id }}">ฉันโอนเงินแล้ว</a>
+
+</body>
+</html>

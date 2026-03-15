@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>สั่งซื้อสำเร็จ - รอรับของได้เล๊ยย!!</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+
+/* SUCCESS PAGE FIX */
+
+.success-wrapper{
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.success-card{
+    background:rgba(20,0,20,0.75);
+    backdrop-filter:blur(10px);
+    border-radius:16px;
+    padding:40px;
+    max-width:520px;
+    width:100%;
+    box-shadow:0 0 30px rgba(255,0,128,0.25);
+    text-align:center;
+}
+
+.success-card h2{
+    font-size:28px;
+    margin-bottom:10px;
+    color:#ff69b4;
+}
+
+.order-id{
+    color:#fff;
+    font-weight:600;
+    margin:10px 0 20px;
+}
+
+.success-info{
+    list-style:none;
+    padding:0;
+    margin:20px 0;
+}
+
+.success-info li{
+    margin:8px 0;
+}
+
+.success-actions{
+    margin-top:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:8px;
+    background:#ff2d8f;
+    color:#fff;
+    text-decoration:none;
+    margin:5px;
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid #ff2d8f;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+<div class="container">
+
+<div class="navbar-brand brand-logo">
+<img src="{{ url_for('static', filename='images/products/logo.png') }}" 
+alt="Logo"
+class="logo-img">
+</div>
+
+<div class="navbar-menu">
+<a href="/" class="nav-link">หน้าแรก</a>
+<a href="/cart" class="nav-link">🛒 ตะกร้า</a>
+</div>
+
+</div>
+</nav>
+
+
+<!-- SUCCESS CONTENT -->
+
+<main class="success-wrapper">
+
+<div class="success-card">
+
+<h2>✓ สั่งซื้อสำเร็จแล้ว!</h2>
+
+<p>ขอบคุณที่ใช้บริการ Noina Shop</p>
+
+<p>เลขที่คำสั่งซื้อ:</p>
+
+<h3 class="order-id">{{ order_id }}</h3>
+
+<ul class="success-info">
+
+<li>📦 สินค้าจะถูกจัดส่งภายใน 24 ชั่วโมง</li>
+
+<li>📧 สั่งซื้อเรียบร้อย 🎉 เช็กอีเมลได้เลย</li>
+
+<li>
+📸 ติดต่อสอบถาม :
+<a href="https://instagram.com/asdwasdwdsawasd"
+target="_blank"
+style="color:#ff2d8f;">
+click here
+</a>
+</li>
+
+</ul>
+
+<div class="success-actions">
+
+<a href="/" class="btn">หน้าหลัก</a>
+
+<a href="/cart" class="btn btn-outline">กลับไปช้อปปิ้ง</a>
+
+</div>
+
+</div>
+
+</main>
+
+</body>
+</html>

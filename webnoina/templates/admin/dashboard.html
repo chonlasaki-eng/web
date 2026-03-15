@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Juey Shop</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Prompt',sans-serif;
+background:radial-gradient(circle at top,#111827,#000);
+color:#e5e7eb;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+.card{
+background:linear-gradient(180deg,#0f172a,#020617);
+border:1px solid #1f2937;
+border-radius:18px;
+padding:30px;
+box-shadow:0 10px 40px rgba(0,0,0,.6);
+}
+
+.title{
+font-family:'Orbitron',sans-serif;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 22px;
+border-radius:12px;
+text-decoration:none;
+font-size:.9rem;
+margin:8px 8px 0 0;
+transition:.25s;
+}
+
+.btn-primary{
+background:#2563eb;
+color:white;
+}
+
+.btn-primary:hover{
+box-shadow:0 0 25px rgba(37,99,235,.6);
+transform:translateY(-1px);
+}
+
+.btn-outline{
+border:1px solid #2563eb;
+color:#2563eb;
+}
+
+.btn-outline:hover{
+background:#2563eb;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1 class="title">🔧 ADMIN DASHBOARD</h1>
+
+<p>ยินดีต้อนรับ <b>{{ session.username }}</b></p>
+
+<a href="/admin/products" class="btn btn-primary">
+📦 จัดการสินค้า
+</a>
+
+<a href="/" class="btn btn-outline">
+🏠 กลับหน้าเว็บ
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
